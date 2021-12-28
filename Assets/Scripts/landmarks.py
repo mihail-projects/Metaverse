@@ -3,7 +3,6 @@ import mediapipe
 import csv
 import os
 import pickle
-import pandas
 
 mp_drawing = mediapipe.solutions.drawing_utils
 mp_drawing_styles = mediapipe.solutions.drawing_styles
@@ -22,9 +21,9 @@ if os.path.exists("model.pkl"):
 # For webcam input:
 
 if cv2.VideoCapture(0) is None:
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
 else:
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
